@@ -47,14 +47,14 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public Map<Student.Sex, List<Student>> listStudentsMapBySex() {
         return students.stream()
-                .collect(Collectors.groupingBy(Student::getSex));
+                .collect(Collectors.groupingBy(s -> s.getSex()));
     }
 
     @Override
     public Map<Integer, Student> listStudentsByYearMapById(int year) {
         return students.stream()
                 .filter(s -> s.getYear() == year)
-                .collect(Collectors.toMap(Student::getId, s -> s));
+                .collect(Collectors.toMap(s -> s.getId(), s -> s));
     }
 
     @Override

@@ -25,9 +25,9 @@ public class _2 {
      */
     private static String getCollegeName(Student student) {
         return Optional.ofNullable(student)
-                .map(Student::getTeacher)
-                .map(Teacher::getCollege)
-                .map(College::getName)
+                .map(s -> s.getTeacher())
+                .map(t -> t.getCollege())
+                .map(c -> c.getName())
                 .orElse("未知学院");
     }
 
@@ -41,8 +41,8 @@ public class _2 {
      */
     private static boolean isTeacher(Student student, String teacherName) {
         return Optional.ofNullable(student)
-                .map(Student::getTeacher)
-                .map(Teacher::getName)
+                .map(s -> s.getTeacher())
+                .map(t -> t.getName())
                 .orElse("")
                 .equals(teacherName);
     }
@@ -61,9 +61,9 @@ public class _2 {
         return students.stream()
                 .filter(s -> s.getNumber() == sNumber)
                 .findFirst()
-                .map(Student::getTeacher)
-                .map(Teacher::getCollege)
-                .map(College::getName)
+                .map(s -> s.getTeacher())
+                .map(t -> t.getCollege())
+                .map(c -> c.getName())
                 .orElse("未知学院");
     }
 
@@ -81,9 +81,9 @@ public class _2 {
         System.out.println(students.stream()
                 .filter(s -> s.getNumber() == sNumber)
                 .findFirst()
-                .map(Student::getTeacher)
-                .map(Teacher::getCollege)
-                .map(College::getName)
+                .map(s -> s.getTeacher())
+                .map(t -> t.getCollege())
+                .map(c -> c.getName())
                 .orElse("未知学院"));
     }
 
